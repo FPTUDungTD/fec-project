@@ -1,0 +1,219 @@
+/* Khung bao ngoài Features */
+.features-section {
+  width: 100%;
+  padding: 5rem 1.5rem 6rem;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Tiêu đề mục */
+.features-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 3.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.features-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 3px;
+  background-color: rgb(221, 43, 43);
+  border-radius: 9999px;
+}
+
+/* Lưới 3 cột */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: 1150px;
+  width: 100%;
+  gap: 2rem;
+}
+
+/* Từng thẻ tính năng */
+.feature-card {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 1.25rem;
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.03),
+    0 2px 4px -2px rgba(0, 0, 0, 0.03);
+  position: relative;
+}
+
+/* Hover: Thẻ nâng lên, viền sáng màu đỏ thương hiệu */
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(221, 43, 43, 0.3);
+  box-shadow:
+    0 20px 25px -5px rgba(221, 43, 43, 0.08),
+    0 8px 10px -6px rgba(221, 43, 43, 0.04);
+}
+
+/* Khung chứa icon */
+.feature-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background-color: #fef2f2; /* Nền đỏ phớt */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon-wrapper {
+  transform: scale(1.08);
+}
+
+/* Tiêu đề thẻ */
+.feature-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.85rem;
+}
+
+/* Nội dung mô tả */
+.feature-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+/* Link khám phá chi tiết */
+.feature-link {
+  margin-top: auto;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgb(221, 43, 43);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: gap 0.2s ease;
+}
+
+.feature-link:hover {
+  gap: 0.6rem;
+}
+/* Khung chứa icon nổi bật */
+.feature-icon-box {
+  width: 52px;
+  height: 52px;
+  background-color: #fef2f2; /* Nền đỏ phớt dịu mắt */
+  border: 1px solid rgba(221, 43, 43, 0.15);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  margin-bottom: 1.25rem;
+  transition: transform 0.25s ease;
+}
+
+/* Hover thẻ thì icon nảy nhẹ */
+.feature-card:hover .feature-icon-box {
+  transform: scale(1.1);
+  background-color: rgba(221, 43, 43, 0.1);
+}
+
+/* Tiêu đề từng thẻ */
+.feature-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.75rem;
+}
+
+/* Đoạn văn mô tả */
+.feature-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+/* Nút link hành động cuối thẻ */
+.feature-action-link {
+  margin-top: auto;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgb(221, 43, 43);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: gap 0.2s ease;
+}
+
+.feature-action-link:hover {
+  gap: 0.6rem;
+}
+/* Đảm bảo khung thẻ co giãn linh hoạt và nút luôn neo sát đáy */
+.feature-card {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 1.25rem;
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%; /* Cố định chiều cao các thẻ bằng nhau trong hàng */
+  box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+/* Hover thẻ: nổi nhẹ lên */
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(221, 43, 43, 0.3);
+  box-shadow: 0 15px 30px -5px rgba(221, 43, 43, 0.1);
+}
+
+/* Nút bấm viên thuốc ở đáy thẻ */
+.feature-card a,
+.feature-action-btn {
+  margin-top: auto; /* Tự động đẩy nút xuống đáy thẻ thẳng hàng nhau */
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(221, 43, 43) !important;
+  text-decoration: none !important;
+  background-color: #fef2f2;
+  border: 1px solid rgba(221, 43, 43, 0.2);
+  padding: 0.55rem 1.15rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: all 0.25s ease;
+}
+
+/* Hover vào nút: chuyển sang nền đỏ chữ trắng cực kỳ nổi bật */
+.feature-card a:hover,
+.feature-action-btn:hover {
+  background-color: rgb(221, 43, 43);
+  color: #ffffff !important;
+  border-color: rgb(221, 43, 43);
+  gap: 0.7rem;
+  box-shadow: 0 4px 12px rgba(221, 43, 43, 0.25);
+}

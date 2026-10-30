@@ -1,0 +1,133 @@
+/* Khung bọc toàn bộ Hero */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: calc(90vh - 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: linear-gradient(to bottom, #ffffff 0%, #fff7f7 100%);
+  padding-top: 0;
+  padding-bottom: 4rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Lớp cờ phủ kín 100% bề ngang trang web và trọn vẹn ảnh */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/fec-flag.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% auto;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 1;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Khối nội dung Hero */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  width: 100%;
+  padding: 2.5rem 1.5rem 1rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 0.4rem 1.1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(221, 43, 43);
+  background-color: rgba(221, 43, 43, 0.1);
+  border-radius: 9999px;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.hero-title {
+  font-size: 2.85rem;
+  font-weight: 900;
+  color: #111827;
+  line-height: 1.25;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.5px;
+}
+
+.hero-highlight {
+  color: rgb(221, 43, 43);
+}
+
+.hero-desc {
+  font-size: 1.125rem;
+  color: #4b5563;
+  line-height: 1.65;
+  margin: 0 auto 2.5rem auto;
+  max-width: 680px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background-color: rgb(221, 43, 43);
+  color: #ffffff;
+  padding: 0.85rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(221, 43, 43, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: rgb(190, 30, 30);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(221, 43, 43, 0.4);
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  padding: 0.85rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-desc {
+    font-size: 1rem;
+  }
+  .hero-content {
+    padding-top: 1.5rem;
+  }
+}

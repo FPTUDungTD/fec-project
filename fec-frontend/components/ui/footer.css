@@ -1,0 +1,153 @@
+/* Khung bao ngoài */
+.Footer {
+  width: 100%;
+  background-color: #0b0f19;
+  color: #94a3b8;
+  padding: 4.5rem 1.5rem 2rem;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: auto;
+}
+
+/* Lưới 3 cột */
+.Footer-container {
+  max-width: 1150px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.4fr;
+  gap: 3.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 850px) {
+  .Footer-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.Footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  font-size: 0.925rem;
+  line-height: 1.6;
+}
+
+/* CỘT 1: Thương hiệu */
+.Footer-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.Footer-logo {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ff4d4d;
+  letter-spacing: 0.5px;
+  margin: 0;
+  line-height: 1;
+}
+
+.Footer-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.15);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.Footer-desc {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.Footer-slogan {
+  color: #94a3b8;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Tiêu đề cột */
+.Footer-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #f8fafc;
+  margin: 0 0 0.5rem 0;
+}
+
+/* CỘT 2: Danh sách link */
+.Footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.Footer-links li a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.Footer-links li a:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* CỘT 3: Liên hệ & Mạng xã hội */
+.Footer-contact-item {
+  margin: 0;
+  color: #cbd5e1;
+}
+
+.contact-icon {
+  margin-right: 0.35rem;
+}
+
+.Footer-social-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.5rem;
+}
+
+.Footer-social-pill {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: #f87171;
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.Footer-social-pill:hover {
+  background-color: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+  transform: translateY(-2px);
+}
+
+/* Dòng bản quyền */
+.Footer-bottom {
+  max-width: 1150px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 2rem;
+  color: #64748b;
+  font-size: 0.875rem;
+}
