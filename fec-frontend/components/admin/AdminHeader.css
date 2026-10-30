@@ -237,6 +237,10 @@
   transform: translateX(-3px);
 }
 
+.shield-icon {
+  color: #22c55e;
+}
+
 @media (max-width: 850px) {
   .admin-user-info {
     display: none;
@@ -246,5 +250,18 @@
   }
   .admin-header-container {
     padding: 0.65rem 1rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .admin-status-wrapper {
+    display: none;
+  }
+  .back-text {
+    display: none;
+  }
+  .btn-back-website {
+    padding: 0.45rem;
+    border-radius: 50%;
   }
 }

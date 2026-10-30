@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import { MapPin, Mail } from "lucide-react";
 import "./footer.css";
 
 export default function Footer() {
@@ -49,10 +50,16 @@ export default function Footer() {
         <div className="Footer-col">
           <h4 className="Footer-heading">{t.footer.contact}</h4>
           <p className="Footer-contact-item">
-            <span className="contact-icon">📍</span> {t.footer.address}
+            <span className="contact-icon">
+              <MapPin size={16} strokeWidth={2} />
+            </span>
+            <span>{t.footer.address}</span>
           </p>
           <p className="Footer-contact-item">
-            <span className="contact-icon">✉️</span> englishclub.fu@gmail.com
+            <span className="contact-icon">
+              <Mail size={16} strokeWidth={2} />
+            </span>
+            <span>englishclub.fu@gmail.com</span>
           </p>
 
           <div className="Footer-social-list">

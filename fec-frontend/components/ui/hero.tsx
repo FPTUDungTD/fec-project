@@ -3,6 +3,7 @@
 import Link from "next/link";
 import SubNav from "./subnav";
 import { useLanguage } from "@/context/LanguageContext";
+import { ArrowRight, Compass } from "lucide-react";
 import "./hero.css";
 
 export default function Hero() {
@@ -11,7 +12,7 @@ export default function Hero() {
   return (
     <section className="hero-section">
       <SubNav />
-      
+
       <div className="hero-content">
         <span className="hero-badge">{t.hero.badge}</span>
         <h1 className="hero-title">
@@ -27,10 +28,12 @@ export default function Hero() {
         </p>
         <div className="hero-actions">
           <Link href="/apply" className="btn-primary">
-            {t.hero.joinNow}
+            <span>{t.hero.joinNow}</span>
+            <ArrowRight size={18} strokeWidth={2.2} />
           </Link>
           <Link href="/about" className="btn-secondary">
-            {t.hero.discoverMore}
+            <Compass size={18} strokeWidth={2.2} />
+            <span>{t.hero.discoverMore}</span>
           </Link>
         </div>
       </div>

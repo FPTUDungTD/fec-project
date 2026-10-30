@@ -3,6 +3,17 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import {
+  MessageSquare,
+  GraduationCap,
+  Scale,
+  Dices,
+  Trophy,
+  Globe,
+  Clock,
+  MapPin,
+  ArrowRight,
+} from "lucide-react";
 import "./activity.css";
 
 export default function Activity() {
@@ -13,6 +24,25 @@ export default function Activity() {
     filter === "all"
       ? t.activity.activities
       : t.activity.activities.filter((act) => act.category === filter);
+
+  const getActivityIcon = (id: string) => {
+    switch (id) {
+      case "esc":
+        return <MessageSquare size={24} className="activity-lucide-icon" strokeWidth={2.2} />;
+      case "workshop":
+        return <GraduationCap size={24} className="activity-lucide-icon" strokeWidth={2.2} />;
+      case "debate":
+        return <Scale size={24} className="activity-lucide-icon" strokeWidth={2.2} />;
+      case "bonding":
+        return <Dices size={24} className="activity-lucide-icon" strokeWidth={2.2} />;
+      case "contest":
+        return <Trophy size={24} className="activity-lucide-icon" strokeWidth={2.2} />;
+      case "community":
+        return <Globe size={24} className="activity-lucide-icon" strokeWidth={2.2} />;
+      default:
+        return <MessageSquare size={24} className="activity-lucide-icon" strokeWidth={2.2} />;
+    }
+  };
 
   return (
     <section className="activity-page">
@@ -70,7 +100,7 @@ export default function Activity() {
           {filteredActivities.map((item) => (
             <article key={item.id} className="activity-card">
               <div className="card-top">
-                <span className="card-icon">{item.icon}</span>
+                <div className="card-icon-box">{getActivityIcon(item.id)}</div>
                 <span className={`card-badge badge-${item.category}`}>
                   {item.category === "regular" && t.activity.badgeRegular}
                   {item.category === "academic" && t.activity.badgeAcademic}
@@ -85,11 +115,15 @@ export default function Activity() {
 
               <div className="card-meta">
                 <div className="meta-row">
-                  <span className="meta-icon">⏰</span>
+                  <span className="meta-icon">
+                    <Clock size={16} strokeWidth={2} />
+                  </span>
                   <span className="meta-text">{item.schedule}</span>
                 </div>
                 <div className="meta-row">
-                  <span className="meta-icon">📍</span>
+                  <span className="meta-icon">
+                    <MapPin size={16} strokeWidth={2} />
+                  </span>
                   <span className="meta-text">{item.location}</span>
                 </div>
               </div>
@@ -105,7 +139,8 @@ export default function Activity() {
 
               <div className="card-action">
                 <Link href="/apply" className="activity-join-btn">
-                  {t.activity.joinBtn} <span>→</span>
+                  <span>{t.activity.joinBtn}</span>
+                  <ArrowRight size={16} strokeWidth={2.2} />
                 </Link>
               </div>
             </article>

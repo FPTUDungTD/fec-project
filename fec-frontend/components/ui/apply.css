@@ -193,6 +193,21 @@
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: 0 4px 14px rgba(221, 43, 43, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.success-icon-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.success-lucide-icon {
+  color: #059669;
 }
 
 .btn-submit-apply:hover {
@@ -263,10 +278,23 @@
 }
 
 @media (max-width: 768px) {
+  .apply-header {
+    padding: 2rem 1rem 1.5rem;
+  }
+  .apply-container {
+    padding: 0 1rem;
+    gap: 1.75rem;
+  }
+  .apply-title {
+    font-size: 1.85rem;
+  }
   .timeline-steps {
     grid-template-columns: 1fr;
   }
   .form-row {
     grid-template-columns: 1fr;
+  }
+  .form-card {
+    padding: 1.5rem 1.25rem;
   }
 }

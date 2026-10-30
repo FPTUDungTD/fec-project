@@ -72,6 +72,16 @@
 @media (max-width: 550px) {
   .stats-grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .stats-section {
+    padding: 3rem 1rem 3.5rem;
+  }
+  .stats-header {
+    margin-bottom: 2rem;
+  }
+  .stats-title {
+    font-size: 1.75rem;
   }
 }
 

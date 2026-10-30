@@ -168,6 +168,27 @@
   box-shadow: 0 14px 28px rgba(221, 43, 43, 0.1);
 }
 
+.value-icon-box {
+  width: 58px;
+  height: 58px;
+  background-color: #fef2f2;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.15rem;
+  border: 1px solid rgba(221, 43, 43, 0.15);
+  transition: transform 0.25s ease;
+}
+
+.value-card:hover .value-icon-box {
+  transform: scale(1.08);
+}
+
+.value-lucide-icon {
+  color: rgb(221, 43, 43);
+}
+
 .value-icon {
   font-size: 2.75rem;
   margin-bottom: 1.15rem;
@@ -490,5 +511,49 @@
   }
   .cta-title {
     font-size: 1.85rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-header {
+    padding: 2rem 1rem 1.5rem;
+  }
+  .about-title {
+    font-size: 1.85rem;
+  }
+  .about-subtitle {
+    font-size: 0.95rem;
+  }
+  .about-container {
+    padding: 0 1rem;
+    gap: 2.25rem;
+  }
+  .about-story-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .section-title {
+    font-size: 1.5rem;
+  }
+  .story-paragraph {
+    font-size: 0.95rem;
+  }
+  .story-stats {
+    padding: 1.25rem;
+  }
+  .dept-image-frame {
+    height: 200px;
+  }
+  .dept-content-body {
+    padding: 1.25rem;
+  }
+  .cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-cta-primary,
+  .btn-cta-secondary {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
   }
 }

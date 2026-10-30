@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import { Users, Mic, Clock, MapPin, ArrowRight } from "lucide-react";
 import "./event.css";
 
 export default function Event() {
@@ -56,14 +57,18 @@ export default function Event() {
                   <span className={`event-category tag-${evt.category.toLowerCase()}`}>
                     {evt.category}
                   </span>
-                  <span className="event-attendees">👥 {evt.attendees}</span>
+                  <span className="event-attendees">
+                    <Users size={14} strokeWidth={2} />
+                    <span>{evt.attendees}</span>
+                  </span>
                 </div>
 
                 <h2 className="event-name">{evt.title}</h2>
 
                 {evt.speaker && (
                   <p className="event-speaker">
-                    <strong>🎤 {evt.speaker}</strong>
+                    <Mic size={15} strokeWidth={2.2} className="speaker-icon" />
+                    <strong>{evt.speaker}</strong>
                   </p>
                 )}
 
@@ -71,11 +76,11 @@ export default function Event() {
 
                 <div className="event-info-row">
                   <div className="info-item">
-                    <span className="info-icon">🕒</span>
+                    <Clock size={15} strokeWidth={2} className="info-lucide-icon" />
                     <span>{evt.time}</span>
                   </div>
                   <div className="info-item">
-                    <span className="info-icon">📍</span>
+                    <MapPin size={15} strokeWidth={2} className="info-lucide-icon" />
                     <span>{evt.location}</span>
                   </div>
                 </div>
@@ -83,7 +88,8 @@ export default function Event() {
                 <div className="event-footer">
                   {evt.status === "upcoming" ? (
                     <Link href="/apply" className="event-action-primary">
-                      {t.event.registerNow}
+                      <span>{t.event.registerNow}</span>
+                      <ArrowRight size={15} strokeWidth={2.2} />
                     </Link>
                   ) : (
                     <span className="event-action-secondary">

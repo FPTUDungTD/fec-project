@@ -231,8 +231,37 @@
   margin-top: auto;
 }
 
+.event-attendees {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.event-speaker {
+  font-size: 0.95rem;
+  color: rgb(221, 43, 43);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.speaker-icon {
+  flex-shrink: 0;
+}
+
+.info-lucide-icon {
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
 .event-action-primary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   background-color: rgb(221, 43, 43);
   color: #ffffff;
   font-size: 0.9rem;
@@ -260,6 +289,12 @@
 }
 
 @media (max-width: 640px) {
+  .event-header {
+    padding: 2rem 1rem 1.5rem;
+  }
+  .event-container {
+    padding: 0 1rem;
+  }
   .event-card {
     flex-direction: column;
     padding: 1.25rem;
@@ -271,6 +306,10 @@
     padding: 0.6rem;
   }
   .event-title {
-    font-size: 2rem;
+    font-size: 1.85rem;
+  }
+  .tab-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
   }
 }

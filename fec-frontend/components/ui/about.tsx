@@ -4,10 +4,48 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
+import {
+  HeartHandshake,
+  Smile,
+  Lightbulb,
+  BookOpen,
+  Globe,
+  Sparkles,
+  Camera,
+  Check,
+  ArrowRight,
+} from "lucide-react";
 import "./about.css";
 
 export default function About() {
   const { t } = useLanguage();
+
+  const getCoreValueIcon = (idx: number) => {
+    switch (idx) {
+      case 0:
+        return <HeartHandshake size={32} className="value-lucide-icon" strokeWidth={2} />;
+      case 1:
+        return <Smile size={32} className="value-lucide-icon" strokeWidth={2} />;
+      case 2:
+      default:
+        return <Lightbulb size={32} className="value-lucide-icon" strokeWidth={2} />;
+    }
+  };
+
+  const getDeptIcon = (id: string) => {
+    switch (id) {
+      case "academic":
+        return <BookOpen size={16} strokeWidth={2.2} />;
+      case "external":
+        return <Globe size={16} strokeWidth={2.2} />;
+      case "content":
+        return <Sparkles size={16} strokeWidth={2.2} />;
+      case "media":
+        return <Camera size={16} strokeWidth={2.2} />;
+      default:
+        return <Sparkles size={16} strokeWidth={2.2} />;
+    }
+  };
 
   return (
     <section className="about-page">
@@ -55,7 +93,7 @@ export default function About() {
           <div className="values-grid">
             {t.about.values.map((val, idx) => (
               <div key={idx} className="value-card">
-                <div className="value-icon">{val.icon}</div>
+                <div className="value-icon-box">{getCoreValueIcon(idx)}</div>
                 <h3 className="value-title">{val.title}</h3>
                 <p className="value-desc">{val.desc}</p>
               </div>
@@ -86,7 +124,7 @@ export default function About() {
                   />
                   <div className="dept-image-overlay" />
                   <div className="dept-floating-badge">
-                    <span className="dept-badge-icon">{dept.icon}</span>
+                    <span className="dept-badge-icon">{getDeptIcon(dept.id)}</span>
                     <span className="dept-badge-text">{dept.name}</span>
                   </div>
                 </div>
@@ -102,7 +140,9 @@ export default function About() {
                     <ul className="roles-list">
                       {dept.highlights.map((item, i) => (
                         <li key={i}>
-                          <span className="bullet-check">✔</span>
+                          <span className="bullet-check">
+                            <Check size={14} strokeWidth={2.5} />
+                          </span>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -112,7 +152,7 @@ export default function About() {
                   <div className="dept-card-footer">
                     <Link href="/apply" className="dept-apply-link">
                       <span>Ứng tuyển vào {dept.name.split(" (")[0]}</span>
-                      <span className="arrow-glyph">→</span>
+                      <ArrowRight size={15} strokeWidth={2.2} />
                     </Link>
                   </div>
                 </div>

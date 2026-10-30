@@ -1,6 +1,9 @@
 "use client";
 
 import React, { useState, useId } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Eye, EyeOff, UserPlus } from "lucide-react";
 import "./register.css";
 
 interface FormErrors {
@@ -13,6 +16,7 @@ interface FormErrors {
 }
 
 export default function Register() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     fullName: "",
     username: "",
@@ -178,11 +182,11 @@ export default function Register() {
     setIsLoading(true);
     try {
       // Giả lập gọi API tạo tài khoản
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      await new Promise((resolve) => setTimeout(resolve, 600));
       console.log("Registered payload:", formData);
 
-      // Hiển thị hộp thoại trình duyệt
-      window.alert("Registration successful!");
+      // Chuyển hướng tới trang đăng nhập
+      router.push("/login");
     } catch {
       setServerError("Đã xảy ra lỗi trong quá trình đăng ký. Vui lòng thử lại!");
     } finally {
@@ -273,7 +277,7 @@ export default function Register() {
                 aria-label={showPassword ? "Ẩn mật khẩu" : "Hiện mật khẩu"}
                 tabIndex={-1}
               >
-                {showPassword ? "🙈" : "👁️"}
+                {showPassword ? <EyeOff size={18} strokeWidth={2} /> : <Eye size={18} strokeWidth={2} />}
               </button>
             </div>
 
@@ -344,13 +348,16 @@ export default function Register() {
                 <span>Creating account...</span>
               </div>
             ) : (
-              "Sign Up Now"
+              <div className="btn-submit-content">
+                <span>Sign Up Now</span>
+                <UserPlus size={18} strokeWidth={2.2} />
+              </div>
             )}
           </button>
         </form>
 
         <footer className="register-footer">
-          Already have an account? <a href="/login">Log in here</a>
+          Already have an account? <Link href="/login">Log in here</Link>
         </footer>
       </div>
     </div>

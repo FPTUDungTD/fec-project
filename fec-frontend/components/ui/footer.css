@@ -109,10 +109,16 @@
 .Footer-contact-item {
   margin: 0;
   color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .contact-icon {
-  margin-right: 0.35rem;
+  display: inline-flex;
+  align-items: center;
+  color: #f87171;
+  flex-shrink: 0;
 }
 
 .Footer-social-list {

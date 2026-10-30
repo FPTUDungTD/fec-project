@@ -2,6 +2,30 @@
 
 import React, { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import {
+  Users,
+  Calendar,
+  Activity,
+  FileText,
+  Search,
+  X,
+  Plus,
+  Check,
+  Edit3,
+  Phone,
+  Mic,
+  MapPin,
+  Clock,
+  Sparkles,
+  RefreshCw,
+  QrCode,
+  Shield,
+  UserCheck,
+  MessageSquare,
+  Scale,
+  Dices,
+  Globe,
+} from "lucide-react";
 import "./RoleManagement.css";
 
 // 1. Types cho Quản lý Thành viên
@@ -190,7 +214,7 @@ const initialActivities: ActivityAdminItem[] = [
   {
     id: "act-1",
     name: "Weekly English Speaking Club (ESC)",
-    icon: "🗣️",
+    icon: "esc",
     schedule: "Thứ 4 & Thứ 7 hàng tuần (18:30 - 20:30)",
     location: "Phòng Beta 204 & Outdoor Plaza",
     leadDept: "Ban Chuyên Môn",
@@ -201,7 +225,7 @@ const initialActivities: ActivityAdminItem[] = [
   {
     id: "act-2",
     name: "FEC Debate & Tư Duy Phản Biện",
-    icon: "⚖️",
+    icon: "debate",
     schedule: "Thứ 6 cách tuần (19:00 - 21:00)",
     location: "Phòng Seminar - Thư viện FPTU",
     leadDept: "Ban Chuyên Môn",
@@ -212,7 +236,7 @@ const initialActivities: ActivityAdminItem[] = [
   {
     id: "act-3",
     name: "English Board Games & Đêm Nhạc Acoustic",
-    icon: "🎲",
+    icon: "bonding",
     schedule: "Chủ Nhật cuối mỗi tháng (19:00 - 21:30)",
     location: "FPTU Campfire / Không gian Cà phê",
     leadDept: "Ban Sự Kiện",
@@ -223,7 +247,7 @@ const initialActivities: ActivityAdminItem[] = [
   {
     id: "act-4",
     name: "Campus English Tour & Giao Lưu Quốc Tế",
-    icon: "🌏",
+    icon: "tour",
     schedule: "Theo đợt sinh viên quốc tế đến FPTU",
     location: "Campus FPTU Hòa Lạc",
     leadDept: "Ban Nhân Sự & Đối Ngoại",
@@ -232,6 +256,21 @@ const initialActivities: ActivityAdminItem[] = [
     attendanceAvg: "20 Tour Guides",
   },
 ];
+
+const getActivityAdminIcon = (id: string) => {
+  switch (id) {
+    case "act-1":
+      return <MessageSquare size={22} className="text-red-600" strokeWidth={2.2} />;
+    case "act-2":
+      return <Scale size={22} className="text-red-600" strokeWidth={2.2} />;
+    case "act-3":
+      return <Dices size={22} className="text-red-600" strokeWidth={2.2} />;
+    case "act-4":
+      return <Globe size={22} className="text-red-600" strokeWidth={2.2} />;
+    default:
+      return <Activity size={22} className="text-red-600" strokeWidth={2.2} />;
+  }
+};
 
 export default function RoleManagement() {
   const { t } = useLanguage();
@@ -512,7 +551,7 @@ export default function RoleManagement() {
               <div className="title-with-badge">
                 <h1 className="admin-main-title">{t.admin.portalTitle}</h1>
                 <span className="security-level-pill">
-                  <span className="shield-icon">⭐</span> Executive Board
+                  <span className="shield-icon"><Shield size={13} strokeWidth={2.5} /></span> Executive Board
                 </span>
               </div>
               <p className="admin-main-desc">{t.admin.portalSubtitle}</p>
@@ -526,7 +565,9 @@ export default function RoleManagement() {
             <div className="stat-card-glass">
               <div className="stat-card-header">
                 <span className="stat-label-text">{t.admin.stats.totalMembers}</span>
-                <span className="stat-icon-wrapper blue-icon">👥</span>
+                <span className="stat-icon-wrapper blue-icon">
+                  <Users size={20} strokeWidth={2.2} />
+                </span>
               </div>
               <div className="stat-value-row">
                 <span className="stat-number-text">{totalMembersCount}</span>
@@ -542,7 +583,9 @@ export default function RoleManagement() {
             <div className="stat-card-glass">
               <div className="stat-card-header">
                 <span className="stat-label-text">{t.admin.stats.pendingApplications}</span>
-                <span className="stat-icon-wrapper amber-icon">📝</span>
+                <span className="stat-icon-wrapper amber-icon">
+                  <FileText size={20} strokeWidth={2.2} />
+                </span>
               </div>
               <div className="stat-value-row">
                 <span className="stat-number-text">{pendingAppsCount}</span>
@@ -558,7 +601,9 @@ export default function RoleManagement() {
             <div className="stat-card-glass">
               <div className="stat-card-header">
                 <span className="stat-label-text">{t.admin.stats.totalEvents}</span>
-                <span className="stat-icon-wrapper red-icon">📅</span>
+                <span className="stat-icon-wrapper red-icon">
+                  <Calendar size={20} strokeWidth={2.2} />
+                </span>
               </div>
               <div className="stat-value-row">
                 <span className="stat-number-text">{totalEventsCount}</span>
@@ -574,7 +619,9 @@ export default function RoleManagement() {
             <div className="stat-card-glass">
               <div className="stat-card-header">
                 <span className="stat-label-text">{t.admin.stats.totalActivities}</span>
-                <span className="stat-icon-wrapper green-icon">🗣️</span>
+                <span className="stat-icon-wrapper green-icon">
+                  <Activity size={20} strokeWidth={2.2} />
+                </span>
               </div>
               <div className="stat-value-row">
                 <span className="stat-number-text">{totalActivitiesCount}</span>
@@ -595,8 +642,8 @@ export default function RoleManagement() {
               className={`segmented-tab ${activeTab === "members" ? "active" : ""}`}
               onClick={() => setActiveTab("members")}
             >
-              <span className="tab-icon">👥</span>
-              <span>{t.admin.tabs.members.replace("👥 ", "")}</span>
+              <Users size={16} strokeWidth={2.2} />
+              <span>{t.admin.tabs.members}</span>
               <span className="tab-counter-badge">{members.length}</span>
             </button>
             <button
@@ -604,8 +651,8 @@ export default function RoleManagement() {
               className={`segmented-tab ${activeTab === "events" ? "active" : ""}`}
               onClick={() => setActiveTab("events")}
             >
-              <span className="tab-icon">📅</span>
-              <span>{t.admin.tabs.events.replace("📅 ", "")}</span>
+              <Calendar size={16} strokeWidth={2.2} />
+              <span>{t.admin.tabs.events}</span>
               <span className="tab-counter-badge">{events.length}</span>
             </button>
             <button
@@ -613,8 +660,8 @@ export default function RoleManagement() {
               className={`segmented-tab ${activeTab === "activities" ? "active" : ""}`}
               onClick={() => setActiveTab("activities")}
             >
-              <span className="tab-icon">🗣️</span>
-              <span>{t.admin.tabs.activities.replace("🗣️ ", "")}</span>
+              <Activity size={16} strokeWidth={2.2} />
+              <span>{t.admin.tabs.activities}</span>
               <span className="tab-counter-badge">{activities.length}</span>
             </button>
           </div>
@@ -625,7 +672,7 @@ export default function RoleManagement() {
           <div className="admin-tab-content">
             <div className="luxury-toolbar">
               <div className="search-box-elevated">
-                <span className="search-lens-icon">🔍</span>
+                <Search size={16} className="search-lens-icon" strokeWidth={2.2} />
                 <input
                   type="text"
                   placeholder={t.admin.membersTab.searchPlaceholder}
@@ -639,7 +686,7 @@ export default function RoleManagement() {
                     className="clear-search-btn"
                     onClick={() => setMemberSearch("")}
                   >
-                    ✕
+                    <X size={14} strokeWidth={2.2} />
                   </button>
                 )}
               </div>
@@ -674,7 +721,8 @@ export default function RoleManagement() {
                   className="btn-create-role-luxury"
                   onClick={handleOpenAddMember}
                 >
-                  {t.admin.membersTab.addMemberBtn}
+                  <Plus size={15} strokeWidth={2.5} />
+                  <span>{t.admin.membersTab.addMemberBtn}</span>
                 </button>
               </div>
             </div>
@@ -722,7 +770,10 @@ export default function RoleManagement() {
                         <td>
                           <div className="email-id-cell">
                             <span className="email-link">{m.email}</span>
-                            <span className="text-muted-time">📞 {m.phone}</span>
+                            <span className="text-muted-time inline-flex items-center gap-1">
+                              <Phone size={12} strokeWidth={2} />
+                              <span>{m.phone}</span>
+                            </span>
                           </div>
                         </td>
                         <td>
@@ -752,14 +803,16 @@ export default function RoleManagement() {
                                   className="action-btn-luxury btn-toggle-unlock"
                                   onClick={() => handleApproveApplication(m.id)}
                                 >
-                                  ✔ {t.admin.membersTab.approveBtn}
+                                  <Check size={14} strokeWidth={2.5} />
+                                  <span>{t.admin.membersTab.approveBtn}</span>
                                 </button>
                                 <button
                                   type="button"
                                   className="action-btn-luxury btn-trash"
                                   onClick={() => handleRejectApplication(m.id)}
                                 >
-                                  ✕ {t.admin.membersTab.rejectBtn}
+                                  <X size={14} strokeWidth={2.5} />
+                                  <span>{t.admin.membersTab.rejectBtn}</span>
                                 </button>
                               </>
                             ) : (
@@ -769,7 +822,8 @@ export default function RoleManagement() {
                                   className="action-btn-luxury btn-modify-role"
                                   onClick={() => handleOpenEditMember(m)}
                                 >
-                                  ✏️ {t.admin.membersTab.editBtn}
+                                  <Edit3 size={14} strokeWidth={2.2} />
+                                  <span>{t.admin.membersTab.editBtn}</span>
                                 </button>
                                 <button
                                   type="button"
@@ -800,7 +854,7 @@ export default function RoleManagement() {
           <div className="admin-tab-content">
             <div className="luxury-toolbar">
               <div className="search-box-elevated">
-                <span className="search-lens-icon">🔍</span>
+                <Search size={16} className="search-lens-icon" strokeWidth={2.2} />
                 <input
                   type="text"
                   placeholder={t.admin.eventsTab.searchPlaceholder}
@@ -816,7 +870,8 @@ export default function RoleManagement() {
                   className="btn-create-role-luxury"
                   onClick={handleOpenAddEvent}
                 >
-                  {t.admin.eventsTab.createEventBtn}
+                  <Plus size={15} strokeWidth={2.5} />
+                  <span>{t.admin.eventsTab.createEventBtn}</span>
                 </button>
               </div>
             </div>
@@ -840,7 +895,10 @@ export default function RoleManagement() {
                         <td>
                           <div className="perm-meta">
                             <span className="perm-name">{evt.title}</span>
-                            <span className="perm-desc">🎤 Diễn giả: {evt.speaker}</span>
+                            <span className="perm-desc inline-flex items-center gap-1">
+                              <Mic size={13} strokeWidth={2.2} />
+                              <span>Diễn giả: {evt.speaker}</span>
+                            </span>
                           </div>
                         </td>
                         <td>
@@ -850,8 +908,14 @@ export default function RoleManagement() {
                         </td>
                         <td>
                           <div className="email-id-cell">
-                            <span className="font-semibold text-gray-900">🗓️ {evt.date} ({evt.time})</span>
-                            <span className="text-muted-time">📍 {evt.location}</span>
+                            <span className="font-semibold text-gray-900 inline-flex items-center gap-1">
+                              <Calendar size={13} strokeWidth={2.2} />
+                              <span>{evt.date} ({evt.time})</span>
+                            </span>
+                            <span className="text-muted-time inline-flex items-center gap-1">
+                              <MapPin size={12} strokeWidth={2} />
+                              <span>{evt.location}</span>
+                            </span>
                           </div>
                         </td>
                         <td>
@@ -896,7 +960,8 @@ export default function RoleManagement() {
                               onClick={() => handleOpenEditEvent(evt)}
                               title="Chỉnh sửa thông tin sự kiện"
                             >
-                              ✏️ {t.admin.eventsTab.editBtn}
+                              <Edit3 size={14} strokeWidth={2.2} />
+                              <span>{t.admin.eventsTab.editBtn}</span>
                             </button>
                             <button
                               type="button"
@@ -906,7 +971,8 @@ export default function RoleManagement() {
                               }
                               title="Quét mã QR điểm danh"
                             >
-                              📱 QR
+                              <QrCode size={14} strokeWidth={2.2} />
+                              <span>QR</span>
                             </button>
                             <button
                               type="button"
@@ -922,7 +988,7 @@ export default function RoleManagement() {
                               className="action-btn-luxury btn-trash"
                               onClick={() => handleDeleteEvent(evt.id)}
                             >
-                              ✕
+                              <X size={14} strokeWidth={2.2} />
                             </button>
                           </div>
                         </td>
@@ -949,26 +1015,35 @@ export default function RoleManagement() {
               {activities.map((act) => (
                 <div key={act.id} className="luxury-role-card">
                   <div className="role-card-banner">
-                    <span className="activity-icon-bubble">{act.icon}</span>
-                    <span className="member-count-bubble">👥 {act.attendanceAvg}</span>
+                    <span className="activity-icon-bubble">{getActivityAdminIcon(act.id)}</span>
+                    <span className="member-count-bubble inline-flex items-center gap-1">
+                      <Users size={13} strokeWidth={2} />
+                      <span>{act.attendanceAvg}</span>
+                    </span>
                   </div>
 
                   <h3 className="role-title-text">{act.name}</h3>
 
                   <div className="activity-info-box">
-                    <p className="activity-info-line">
-                      <strong>⏰ Lịch định kỳ:</strong> {act.schedule}
+                    <p className="activity-info-line flex items-center gap-1.5">
+                      <Clock size={14} className="text-gray-500" strokeWidth={2} />
+                      <strong>Lịch định kỳ:</strong> {act.schedule}
                     </p>
-                    <p className="activity-info-line">
-                      <strong>📍 Địa điểm:</strong> {act.location}
+                    <p className="activity-info-line flex items-center gap-1.5">
+                      <MapPin size={14} className="text-gray-500" strokeWidth={2} />
+                      <strong>Địa điểm:</strong> {act.location}
                     </p>
-                    <p className="activity-info-line">
-                      <strong>👤 Phụ trách:</strong> {act.facilitator} ({act.leadDept})
+                    <p className="activity-info-line flex items-center gap-1.5">
+                      <UserCheck size={14} className="text-gray-500" strokeWidth={2} />
+                      <strong>Phụ trách:</strong> {act.facilitator} ({act.leadDept})
                     </p>
                   </div>
 
                   <div className="current-topic-card">
-                    <span className="topic-badge">🌟 CHỦ ĐỀ TUẦN NÀY (Topic of the Week)</span>
+                    <span className="topic-badge inline-flex items-center gap-1">
+                      <Sparkles size={13} strokeWidth={2.2} />
+                      <span>CHỦ ĐỀ TUẦN NÀY (Topic of the Week)</span>
+                    </span>
                     <p className="topic-text">&ldquo;{act.currentTopic}&rdquo;</p>
                   </div>
 
@@ -978,7 +1053,8 @@ export default function RoleManagement() {
                       className="btn-update-topic"
                       onClick={() => handleOpenEditActivity(act)}
                     >
-                      <span>⚡ Cập Nhật Chủ Đề & Lịch Tuần Này</span>
+                      <RefreshCw size={14} strokeWidth={2.2} />
+                      <span>Cập Nhật Chủ Đề & Lịch Tuần Này</span>
                     </button>
                   </div>
                 </div>
@@ -994,7 +1070,7 @@ export default function RoleManagement() {
           <div className="luxury-modal-container" onClick={(e) => e.stopPropagation()}>
             <div className="luxury-modal-header">
               <div className="modal-title-with-icon">
-                <span className="modal-header-icon">👥</span>
+                <span className="modal-header-icon"><Users size={18} strokeWidth={2.2} /></span>
                 <h3>{editingMember ? t.admin.modalMember.titleEdit : t.admin.modalMember.titleAdd}</h3>
               </div>
               <button
@@ -1002,7 +1078,7 @@ export default function RoleManagement() {
                 className="modal-dismiss-btn"
                 onClick={() => setIsMemberModalOpen(false)}
               >
-                ✕
+                <X size={18} strokeWidth={2.2} />
               </button>
             </div>
 
@@ -1123,7 +1199,7 @@ export default function RoleManagement() {
           <div className="luxury-modal-container" onClick={(e) => e.stopPropagation()}>
             <div className="luxury-modal-header">
               <div className="modal-title-with-icon">
-                <span className="modal-header-icon">📅</span>
+                <span className="modal-header-icon"><Calendar size={18} strokeWidth={2.2} /></span>
                 <h3>{editingEvent ? t.admin.modalEvent.titleEdit : t.admin.modalEvent.titleAdd}</h3>
               </div>
               <button
@@ -1131,7 +1207,7 @@ export default function RoleManagement() {
                 className="modal-dismiss-btn"
                 onClick={() => setIsEventModalOpen(false)}
               >
-                ✕
+                <X size={18} strokeWidth={2.2} />
               </button>
             </div>
 
@@ -1263,7 +1339,7 @@ export default function RoleManagement() {
           <div className="luxury-modal-container" onClick={(e) => e.stopPropagation()}>
             <div className="luxury-modal-header">
               <div className="modal-title-with-icon">
-                <span className="modal-header-icon">{editingActivity.icon}</span>
+                <span className="modal-header-icon"><Activity size={18} strokeWidth={2.2} /></span>
                 <h3>Cập Nhật Chủ Đề Sinh Hoạt: {editingActivity.name}</h3>
               </div>
               <button
@@ -1271,7 +1347,7 @@ export default function RoleManagement() {
                 className="modal-dismiss-btn"
                 onClick={() => setIsActivityModalOpen(false)}
               >
-                ✕
+                <X size={18} strokeWidth={2.2} />
               </button>
             </div>
 

@@ -1,6 +1,9 @@
 "use client";
 
 import React, { useState, useId } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Eye, EyeOff, ArrowRight } from "lucide-react";
 import "./login.css";
 
 interface FormErrors {
@@ -9,6 +12,7 @@ interface FormErrors {
 }
 
 export default function Login() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -88,11 +92,11 @@ export default function Login() {
     setIsLoading(true);
     try {
       // Giả lập gửi request xác thực đăng nhập
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 600));
       console.log("Submitting login payload:", formData);
 
-      // Hiển thị popup trình duyệt khi tất cả điều kiện đều hợp lệ
-      alert("Đăng nhập thành công!");
+      // Đăng nhập thành công -> Chuyển về trang chủ
+      router.push("/");
     } catch {
       setServerError("Email hoặc mật khẩu không chính xác.");
     } finally {
@@ -104,7 +108,7 @@ export default function Login() {
     <div className="login-wrapper">
       <div className="login-card">
         <header className="login-header">
-          <div className="badge">FEC Potatoes</div>
+          <div className="badge">FPTU English Club</div>
           <h1>Welcome to FEC Family</h1>
           <p>Please enter your account details to continue</p>
         </header>
@@ -158,7 +162,7 @@ export default function Login() {
                 aria-label={showPassword ? "Ẩn mật khẩu" : "Hiện mật khẩu"}
                 tabIndex={-1}
               >
-                {showPassword ? "🙈" : "👁️"}
+                {showPassword ? <EyeOff size={18} strokeWidth={2} /> : <Eye size={18} strokeWidth={2} />}
               </button>
             </div>
             {errors.password && <span className="field-hint error">{errors.password}</span>}
@@ -186,7 +190,10 @@ export default function Login() {
                 <span>Đang xử lý...</span>
               </div>
             ) : (
-              "Login"
+              <div className="login-btn-content">
+                <span>Login</span>
+                <ArrowRight size={17} strokeWidth={2.2} />
+              </div>
             )}
           </button>
         </form>
@@ -220,7 +227,7 @@ export default function Login() {
         </div>
 
         <footer className="login-footer">
-          Don&apos;t have an account? <a href="/register">Sign up now</a>
+          Don&apos;t have an account? <Link href="/register">Sign up now</Link>
         </footer>
       </div>
     </div>

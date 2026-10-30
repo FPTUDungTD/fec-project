@@ -94,6 +94,10 @@
   text-decoration: none;
   transition: all 0.2s ease;
   box-shadow: 0 4px 12px rgba(221, 43, 43, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .btn-primary:hover {
@@ -112,6 +116,10 @@
   border-radius: 0.6rem;
   text-decoration: none;
   transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .btn-secondary:hover {
@@ -129,5 +137,20 @@
   }
   .hero-content {
     padding-top: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    box-sizing: border-box;
   }
 }

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import { CheckCircle2, Send } from "lucide-react";
 import "./apply.css";
 
 export default function Apply() {
@@ -75,7 +76,9 @@ export default function Apply() {
         <div className="form-card">
           {submitted ? (
             <div className="success-box">
-              <div className="success-icon">🎉</div>
+              <div className="success-icon-box">
+                <CheckCircle2 size={56} className="success-lucide-icon" strokeWidth={1.75} />
+              </div>
               <h2>{t.apply.successTitle}</h2>
               <p>
                 {t.apply.successDescP1} <strong>{formData.fullName}</strong>{" "}
@@ -218,7 +221,8 @@ export default function Apply() {
               </div>
 
               <button type="submit" className="btn-submit-apply">
-                {t.apply.submitBtn}
+                <span>{t.apply.submitBtn}</span>
+                <Send size={16} strokeWidth={2.2} />
               </button>
             </form>
           )}

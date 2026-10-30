@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
+import { ArrowLeft, ShieldCheck } from "lucide-react";
 import "./AdminHeader.css";
 
 export default function AdminHeader() {
@@ -24,8 +25,8 @@ export default function AdminHeader() {
                 <span className="admin-edition-tag">PRO</span>
               </div>
               <div className="admin-status-wrapper">
-                <span className="pulse-dot" />
-                <span className="admin-brand-status">Security Shield Active</span>
+                <ShieldCheck size={13} className="shield-icon" strokeWidth={2.5} />
+                <span className="admin-brand-status">Security Active</span>
               </div>
             </div>
           </Link>
@@ -34,7 +35,7 @@ export default function AdminHeader() {
         {/* Khối công cụ bên phải */}
         <div className="admin-header-actions">
           {/* Bộ chọn ngôn ngữ cờ chuẩn */}
-          <LanguageSwitcher theme="dark" />
+          <LanguageSwitcher theme="dark" showText={false} />
 
           {/* User Profile Pill sang trọng */}
           <div className="admin-profile-pill">
@@ -50,8 +51,8 @@ export default function AdminHeader() {
 
           {/* Nút thoát về Website */}
           <Link href="/" className="btn-back-website" title={t.admin.backToHome}>
-            <span className="back-icon">←</span>
-            <span>{t.admin.backToHome.replace("← ", "")}</span>
+            <ArrowLeft size={15} strokeWidth={2.2} className="back-icon" />
+            <span className="back-text">{t.admin.backToHome.replace("← ", "")}</span>
           </Link>
         </div>
       </div>

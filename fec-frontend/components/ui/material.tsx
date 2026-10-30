@@ -2,6 +2,17 @@
 
 import React, { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import {
+  Search,
+  Layers,
+  PenTool,
+  BookOpen,
+  Target,
+  Mic,
+  FileText,
+  Download,
+  FolderOpen,
+} from "lucide-react";
 import "./material.css";
 
 export default function Material() {
@@ -31,7 +42,7 @@ export default function Material() {
 
         {/* Ô tìm kiếm tài liệu */}
         <div className="material-search-box">
-          <span className="search-icon">🔍</span>
+          <Search size={18} className="search-lucide-icon" strokeWidth={2.2} />
           <input
             type="text"
             placeholder={t.material.searchPlaceholder}
@@ -48,35 +59,40 @@ export default function Material() {
             className={`cat-btn ${activeCategory === "all" ? "active" : ""}`}
             onClick={() => setActiveCategory("all")}
           >
-            {t.material.allCat} ({t.material.materials.length})
+            <Layers size={14} strokeWidth={2} />
+            <span>{t.material.allCat} ({t.material.materials.length})</span>
           </button>
           <button
             type="button"
             className={`cat-btn ${activeCategory === "grammar" ? "active" : ""}`}
             onClick={() => setActiveCategory("grammar")}
           >
-            {t.material.grammarCat}
+            <PenTool size={14} strokeWidth={2} />
+            <span>{t.material.grammarCat.replace(/^.*?\s+/, "")}</span>
           </button>
           <button
             type="button"
             className={`cat-btn ${activeCategory === "vocab" ? "active" : ""}`}
             onClick={() => setActiveCategory("vocab")}
           >
-            {t.material.vocabCat}
+            <BookOpen size={14} strokeWidth={2} />
+            <span>{t.material.vocabCat.replace(/^.*?\s+/, "")}</span>
           </button>
           <button
             type="button"
             className={`cat-btn ${activeCategory === "ielts" ? "active" : ""}`}
             onClick={() => setActiveCategory("ielts")}
           >
-            {t.material.ieltsCat}
+            <Target size={14} strokeWidth={2} />
+            <span>{t.material.ieltsCat.replace(/^.*?\s+/, "")}</span>
           </button>
           <button
             type="button"
             className={`cat-btn ${activeCategory === "speaking" ? "active" : ""}`}
             onClick={() => setActiveCategory("speaking")}
           >
-            {t.material.speakingCat}
+            <Mic size={14} strokeWidth={2} />
+            <span>{t.material.speakingCat.replace(/^.*?\s+/, "")}</span>
           </button>
         </div>
       </div>
@@ -84,7 +100,7 @@ export default function Material() {
       <div className="material-container">
         {filteredMaterials.length === 0 ? (
           <div className="material-empty">
-            <span className="empty-icon">📂</span>
+            <FolderOpen size={48} className="empty-lucide-icon" strokeWidth={1.5} />
             <h3>{t.material.emptyTitle}</h3>
             <p>{t.material.emptyDesc}</p>
           </div>
@@ -111,8 +127,14 @@ export default function Material() {
                 </div>
 
                 <div className="mat-meta">
-                  <span>📦 {item.size}</span>
-                  <span>⬇️ {item.downloads.toLocaleString()} {t.material.downloadsText}</span>
+                  <span className="mat-meta-item">
+                    <FileText size={14} strokeWidth={2} />
+                    <span>{item.size}</span>
+                  </span>
+                  <span className="mat-meta-item">
+                    <Download size={14} strokeWidth={2} />
+                    <span>{item.downloads.toLocaleString()} {t.material.downloadsText}</span>
+                  </span>
                 </div>
 
                 <div className="mat-action">
@@ -122,7 +144,7 @@ export default function Material() {
                     onClick={() => alert(`Downloading: ${item.title}`)}
                   >
                     <span>{t.material.downloadNow}</span>
-                    <span>📥</span>
+                    <Download size={15} strokeWidth={2.2} />
                   </button>
                 </div>
               </article>

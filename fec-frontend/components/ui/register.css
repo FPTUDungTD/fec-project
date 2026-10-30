@@ -222,21 +222,28 @@
 .btn-submit {
   width: 100%;
   padding: 12px;
-  background: red;
+  background: rgb(221, 43, 43);
   color: #ffffff;
-  border: 1px solid #f61234;
+  border: 1px solid rgb(221, 43, 43);
   border-radius: 10px;
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
+  transition: all 0.2s ease;
   margin-top: 6px;
 }
 
 .btn-submit:hover:not(:disabled) {
-  background: #ffffff;
-  color: red;
-  border-color: #f61234;
+  background: rgb(195, 30, 30);
+  border-color: rgb(195, 30, 30);
+  box-shadow: 0 4px 12px rgba(221, 43, 43, 0.3);
+}
+
+.btn-submit-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .btn-submit:active:not(:disabled) {
@@ -288,11 +295,19 @@
 }
 
 @media (max-width: 480px) {
+  .register-card {
+    padding: 26px 18px;
+    border-radius: 16px;
+  }
+  .register-header h1 {
+    font-size: 1.35rem;
+  }
   .form-row {
     flex-direction: column;
     gap: 16px;
   }
-  .register-card {
-    padding: 30px 20px;
+  .form-group input {
+    font-size: 16px;
+    padding: 10px 12px;
   }
 }

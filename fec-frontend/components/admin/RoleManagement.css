@@ -1295,7 +1295,23 @@
     flex-direction: column;
   }
   .admin-main-title {
-    font-size: 1.85rem;
+    font-size: 1.55rem;
+  }
+  .admin-console-page {
+    padding: 1.25rem 0.75rem 3rem;
+  }
+  .luxury-hero-banner {
+    padding: 1.25rem;
+  }
+  .segmented-tabs-wrapper {
+    overflow-x: auto;
+  }
+  .segmented-tabs-track {
+    width: max-content;
+    min-width: 100%;
+  }
+  .luxury-role-card {
+    padding: 1.25rem;
   }
 }
 
